@@ -29,27 +29,32 @@
             border: 1px #ffffff solid;
         }
         
-        #gray {
+        .skin_0 {
             background-color: gray;
         }
+        /* #purple { */
         
-        #purple {
+        .skin_1 {
             background-color: purple;
         }
+        /* #pink { */
         
-        #pink {
+        .skin_2 {
             background-color: pink;
         }
+        /* #blue { */
         
-        #blue {
+        .skin_3 {
             background-color: blue
         }
+        /* #yellow { */
         
-        #yellow {
+        .skin_4 {
             background-color: yellow;
         }
+        /* #green { */
         
-        #green {
+        .skin_5 {
             background-color: green;
         }
         
@@ -57,9 +62,10 @@
             margin-left: 18px;
             width: 630px;
             height: 80px;
+            border: 1px gray solid;
             font-size: 18px;
             line-height: 28px;
-            background-color: gray;
+            /* background-color: gray; */
         }
     </style>
 </head>
@@ -68,8 +74,8 @@
     <fieldset>
         <legend>网页换肤</legend>
         <div id="content">
-            <ul id="skin">
-                <li class="skin_0" title="灰色" id="gray"></li>
+            <ul>
+                <li class="skin_0" id="gray"></li>
                 <li class="skin_1" id="purple"></li>
                 <li class="skin_2" id="pink"></li>
                 <li class="skin_3" id="blue"></li>
@@ -77,17 +83,21 @@
                 <li class="skin_5" id="green"></li>
             </ul>
         </div>
-        <p class="skin_0">LocalStorage将数据保存在客户端本地的硬件设备中，即使浏览器被关闭了，该数据仍然存在，下次打开浏览器访问网站时仍然可以继续使用</p>
+        <p id="skin">LocalStorage将数据保存在客户端本地的硬件设备中，即使浏览器被关闭了，该数据仍然存在，下次打开浏览器访问网站时仍然可以继续使用</p>
     </fieldset>
 </body>
 <script>
     var skins = document.getElementsByTagName("li");
-    var skin_0 = document.getElementsByTagName("skin0");
+    var skin = document.getElementById("skin");
+    skin.setAttribute("class", "skin_" + "0");
     for (var i = 0; i < skins.length; i++) {
-        skins[i].onclick = function() {
-            console.log(this.style.backgroundColor.toString());
-
-        }
+        ! function(i) {
+            skins[i].onclick = function() {
+                for (var j = 0; j < skins.length; j++) {}
+                console.log("skin_" + i)
+                skin.setAttribute("class", "skin_" + i);
+            };
+        }(i)
     }
 </script>
 
