@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        legend {
+            font-size: 2em;
+            color: red;
+        }
+        
+        fieldset {
+            width: 680px;
+            height: 350px;
+        }
+        
+        #content {
+            margin-top: 40px;
+            width: 670px;
+            border: 1px #cccccc solid;
+        }
+        
+        #content ul li {
+            display: inline-block;
+            list-style-type: none;
+            height: 16px;
+            width: 16px;
+            border: 1px #ffffff solid;
+            position: relative;
+        }
+        
+        .skin_0 {
+            background-color: gray;
+        }
+        
+        .skin_1 {
+            background-color: purple;
+        }
+        
+        .skin_2 {
+            background-color: pink;
+        }
+        
+        .skin_3 {
+            background-color: blue
+        }
+        
+        .skin_4 {
+            background-color: yellow;
+        }
+        
+        .skin_5 {
+            background-color: green;
+        }
+        
+        p {
+            margin-top: 50px;
+            margin-left: 18px;
+            width: 630px;
+            height: 80px;
+            border: 1px gray solid;
+            font-size: 18px;
+            line-height: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>网页换肤</legend>
+        <div id="content">
+            <ul>
+                <li class="skin_0" id="gray"></li>
+                <li class="skin_1" id="purple"></li>
+                <li class="skin_2" id="pink"></li>
+                <li class="skin_3" id="blue"></li>
+                <li class="skin_4" id="yellow"></li>
+                <li class="skin_5" id="green"></li>
+            </ul>
+        </div>
+        <p id="skin">LocalStorage将数据保存在客户端本地的硬件设备中，即使浏览器被关闭了，该数据仍然存在，下次打开浏览器访问网站时仍然可以继续使用</p>
+    </fieldset>
+</body>
+<script>
+    var skins = document.getElementsByTagName("li");
+    var skin = document.getElementById("skin");
+    skin.setAttribute("class", "skin_" + "0");
+    for (var i = 0; i < skins.length; i++) {
+        ! function(i) {
+            skins[i].onclick = function() {
+                for (var j = 0; j < skins.length; j++) {}
+                // var a = localStorage.getItem('a');
+                // if (a == null && a == undefined) {
+                //     skin.setAttribute("class", "skin_0");
+                // } else {
+                //     console.log("skin_" + i);
+                //     skin.setAttribute("class", "skin_" + i);
+                // }
+                console.log(this);
+                this.style.top = "-10px";
+            }
+
+            skins[i].onmouseup = function() {
+                for (var j = 0; j < skins.length; j++) {}
+                localStorage.removeItem("class", "skin_" + i);
+                console.log(i);
+                this.style.top = "0px";
+            }
+        }(i)
+    }
+</script>
+
+</html>
